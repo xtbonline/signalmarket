@@ -168,7 +168,7 @@ const emailTemplate = ({ title, url, body }) => {
   // 																														style="margin: 0 0 16px;"
   // 																														data-mce-style="margin: 0 0 16px;"
   // 																													>
-  // 																														Xtb Online Trade is the easiest place to invest and trade
+  // 																														Signal Market is the easiest place to invest and trade
   // 																														cryptocurrency. Sign up and get started today.
   // 																														<br /><br />Our mission is to become the most trustworthy
   // 																														cryptocurrency and derivatives trading platform We see
@@ -179,10 +179,10 @@ const emailTemplate = ({ title, url, body }) => {
   // 																														<a
   // 																															class="v1v1v1v1link"
   // 																															style="font-weight: normal; text-decoration: underline; color: #7f54b3;"
-  // 																															href="https://xtbonlinetrading.vercel.app"
+  // 																															href="https://signalmarkettrading.vercel.app"
   // 																															target="_blank"
   // 																															rel="noopener noreferrer"
-  // 																															data-mce-href="https://xtbonlinetrading.vercel.app"
+  // 																															data-mce-href="https://signalmarkettrading.vercel.app"
   // 																															data-mce-style="font-weight: normal; text-decoration: underline; color: #7f54b3;"
   // 																															>our Website</a
   // 																														>
@@ -193,7 +193,7 @@ const emailTemplate = ({ title, url, body }) => {
   // 																														style="margin: 0 0 16px;"
   // 																														data-mce-style="margin: 0 0 16px;"
   // 																													>
-  // 																														Thanks,<br />- Xtb Online Trade.
+  // 																														Thanks,<br />- Signal Market.
   // 																													</p>
   // 																												</div>
   // 																											</td>
@@ -242,12 +242,12 @@ const emailTemplate = ({ title, url, body }) => {
   // 																									Copyright © 2022
   // 																									<a
   // 																										style="color: #7f54b3; font-weight: normal; text-decoration: underline;"
-  // 																										href="https://xtbonlinetrading.vercel.app"
+  // 																										href="https://signalmarkettrading.vercel.app"
   // 																										target="_blank"
   // 																										rel="noopener noreferrer"
-  // 																										data-mce-href="https://xtbonlinetrading.vercel.app"
+  // 																										data-mce-href="https://signalmarkettrading.vercel.app"
   // 																										data-mce-style="color: #7f54b3; font-weight: normal; text-decoration: underline;"
-  // 																										>Xtb Online Trade.</a
+  // 																										>Signal Market.</a
   // 																									>
   // 																									All Rights Reserved.
   // 																								</p>
