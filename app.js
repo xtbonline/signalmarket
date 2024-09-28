@@ -9,12 +9,18 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const passport = require("passport");
 const { __passport__ } = require("./utils/passport.js");
-const MongoStore = require("connect-mongo");
+// const MongoStore = require("connect-mongo");
+const MySQLStore = require("express-mysql-session")(session);
 
 // import appRoute from "./routes/appRoute.js";
 // import userRoute from "./routes/userRoute.js";
 // import adminRoute frp
-const { adminRoute, userRoute, appRoute, dashboardRoute } = require("./routes/index.js");
+const {
+  adminRoute,
+  userRoute,
+  appRoute,
+  dashboardRoute,
+} = require("./routes/index.js");
 
 // const __filename = fileURLToPath(import.meta.url);
 // const __dirname = path.dirname(__filename);
@@ -36,21 +42,28 @@ app.use(express.urlencoded({ extended: true }));
 
 // Express session
 app.use(
-	session({
-		secret: "secret",
-		resave: false,
-		saveUninitialized: false,
-		// store: MongoStore.create({
-		// 	mongoUrl: "mongodb://u4fakmxzdkt0pd4msndg:6WDZB5FOhYXzK3jIA3mj@bqydofpk5iljqqq-mongodb.services.clever-cloud.com:27017/bqydofpk5iljqqq",
-		// 	dbName: "bqydofpk5iljqqq",
-		// 	autoRemove: "disabled",
-		// 	touchAfter: 24 * 3600
-		// }),
-		store: new (require("connect-pg-simple")(session))({
-			createTableIfMissing: true,
-		}),
-		cookie: { maxAge: 2 * 24 * 60 * 60 * 1000 },
-	})
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false,
+    store: new MySQLStore({
+      host: "131.153.148.82",
+      port: 3306,
+      user: "arrivelo_signalmarket",
+      database: "arrivelo_signalmarket",
+      password: "admin00154abS",
+    }),
+    // store: MongoStore.create({
+    // 	mongoUrl: "mongodb://u4fakmxzdkt0pd4msndg:6WDZB5FOhYXzK3jIA3mj@bqydofpk5iljqqq-mongodb.services.clever-cloud.com:27017/bqydofpk5iljqqq",
+    // 	dbName: "bqydofpk5iljqqq",
+    // 	autoRemove: "disabled",
+    // 	touchAfter: 24 * 3600
+    // }),
+    // store: new (require("connect-pg-simple")(session))({
+    // 	createTableIfMissing: true,
+    // }),
+    cookie: { maxAge: 2 * 24 * 60 * 60 * 1000 },
+  })
 );
 //
 // Passport middleware
@@ -62,10 +75,10 @@ app.use(flash());
 
 // Global variables
 app.use(function (req, res, next) {
-	res.locals.success_msg = req.flash("success_msg");
-	res.locals.error_msg = req.flash("error_msg");
-	res.locals.error = req.flash("error");
-	next();
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
+  next();
 });
 //
 // routes
@@ -83,11 +96,11 @@ app.use("/dashboard", dashboardRoute);
 const port = process.env.PORT || 5001;
 
 try {
-	app.listen(port, () => {
-		console.log(`Server started on port ${port}`);
-	});
+  app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
+  });
 } catch (e) {
-	console.log(e);
+  console.log(e);
 }
 //
 module.exports = app;
